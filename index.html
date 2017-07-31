@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GPW Sound Test</title>
+	<meta property="og:title" content="GPW Sound Test">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="">
+	<meta property="og:description" content="">
+	<meta property="og:site_name" content="utzmie">
+	<meta property="og:image" content="">
+	<meta property="og:locale" content="ja_JP">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="">
+	<meta name="twitter:title" content="GPW Sound Test">
+	<meta name="twitter:description" content="">
+	<link rel="stylesheet" href="./css/style.css">
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WKMH9W');</script>
+	<!-- End Google Tag Manager -->
+
+	<style>
+		.c-btn {
+			vertical-align: middle;
+			margin-right: .5em;
+		}
+
+		.c-btn--download:before,
+		.c-btn--play:before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			width: 1.5em;
+			height: 1em;
+			background-size: auto 1em;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+		}
+
+		.c-btn--download:before {
+			background-image: url("./img/icon-download.svg");
+		}
+
+		.c-btn--play:before {
+			background-image: url("./img/icon-audio.svg");
+		}
+
+		.item {
+			margin-bottom: 2em;
+		}
+
+		.search-form {
+			border: 2px solid #EEEEEE;
+			background-color: #f8f8f8;
+			padding: 20px;
+		}
+
+		.search-form input[type="text"] {
+			box-sizing: border-box;
+			display: block;
+			padding: .5em .75em;
+			border: 2px solid #AAA;
+			width: 100%;
+		}
+
+		.search-form input[type="text"]:focus {
+			border-color: #333;
+		}
+	</style>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKMH9W"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="l-container">
+		<header class="l-header">
+			<p class="l-header__logo">utzmie（実験場）</p>
+		</header>
+		<main class="l-body">
+			<article>
+				<h1 style="text-align: center;">レスリング音声素材検索</h1>
+
+				<div id="contents">
+
+					<noscript>
+						<p>JavaScriptを有効にしてください。許してや、城之内...</p>
+					</noscript>
+
+					<div id="app">
+
+						<div class="search-form">
+							<p><input type="text" v-model="searchQuery" placeholder="キーワードを入力"></p>
+							{{ searchQuery }}
+						</div>
+
+						<section>
+							<ol class="item-list">
+								<li v-for="item in filteredItems" class="item">
+									<p class="item-name">{{ item.name }}</p>
+									<div class="item-audio">
+										<button class="c-btn c-btn--play" type="button" v-on:click="play" v-bind:data-src='"./audio/aniki-archive/" + item.src'>Play</button>
+										<a class="c-btn c-btn--download" v-bind:href='"./audio/aniki-archive/" + item.src' v-bind:download='"./audio/aniki-archive/" + item.src'>Download</a>
+									</div>
+								</li>
+							</ol>
+						</section>
+
+					</div>
+					<!-- app -->
+
+					<section>
+						<h2>素材（wikiより）</h2>
+						<ul>
+							<li><a href="//www1.axfc.net/uploader/so/253120" target="_blank">[音声配布][試作版] 兄貴アーカイブス 01-1試合目</a></li>
+							<li><a href="//www1.axfc.net/uploader/so/2792202 " target="_blank">[音声配布][試作版] 兄貴アーカイブス 02-2＆3試合目 </a></li>
+							<li><a href="//www1.axfc.net/uploader/so/2792206" target="_blank">[音声配布] 兄貴アーカイブス 03-未公開＆SPECIAL未公開</a></li>
+						</ul>
+					</section>
+
+				</div><!-- #contents -->
+
+			</article>
+		</main>
+		<footer role="contentinfo" class="l-footer">
+			<div class="l-footer__author">
+				<ul>
+					<li><a href="/">HOME</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div><!-- /container -->
+
+	<script src="./js/vue.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./js/audio-archive.js"></script>
+	<script src="./js/main.js"></script>
+
+
+</body>
+</html>
